@@ -1,0 +1,58 @@
+{
+  "skill_name": "competitor-review-mining",
+  "evals": [
+    {
+      "id": 1,
+      "name": "Basic Review Collection",
+      "prompt": "Collect 10 reviews for 'Competitor A' from G2 and Amazon with ratings 1-3 stars. Include source URLs and dates.",
+      "expected_output_structure": {
+        "reviews": [
+          {
+            "platform": "string",
+            "source_url": "string", 
+            "rating": "integer",
+            "date": "string",
+            "review_text": "string",
+            "sentiment": "string"
+          }
+        ],
+        "collection_status": "success" | "partial" | "failed"
+      }
+    },
+    {
+      "id": 2,
+      "name": "Theme Extraction",
+      "prompt": "From the collected reviews, identify the top 3 pain point themes and their frequency.",
+      "expected_output_structure": {
+        "top_themes": [
+          {
+            "theme": "string",
+            "frequency": "integer",
+            "evidence_count": "integer",
+            "representative_quotes": [
+              {
+                "quote": "string",
+                "source_url": "string"
+              }
+            ]
+          }
+        ],
+        "severity_ratings": {
+          "high_priority": "boolean",
+          "medium_priority": "boolean"
+        }
+      }
+    },
+    {
+      "id": 3,
+      "name": "Opportunity Identification",
+      "prompt": "Based on the identified themes, suggest 1 actionable product opportunity with priority score.",
+      "expected_output_structure": {
+        "opportunity": "string",
+        "priority": "string",
+        "validation_method": "string",
+        "evidence_count": "integer"
+      }
+    }
+  ]
+}
